@@ -1,7 +1,7 @@
 # C# Console Applications App01 to App05
 | Author | Details |
 | ---- | ---- |
-**Name**: | Student Name  |
+**Name**: | New Student Name  |
 **Student ID**: | 12345678 |
 **Course:** | Computing |
 **Module**: | CO453     |
