@@ -5,7 +5,7 @@ namespace ConsoleAppProject.App01
     /// <summary>
     /// This App will prompt the user to input a distance
     /// measured in miles and it will calculate and
-    /// output the equivalant distance in feet.
+    /// output the equivalent distance in feet.
     /// </summary>
     /// <author>
     /// Derek's version 0.1
@@ -14,16 +14,20 @@ namespace ConsoleAppProject.App01
     {
         public const int FEET_IN_MILES = 5280;
 
+        public const double METRES_IN_MILES = 1609.34;
+
         private double miles;
 
         private double feet;
+
+        private double metres;
 
         /// <summary>
         /// This method will input the distance measured in miles
         /// calculate the same distance in feet, and output the
         /// distance in feet.
         /// </summary>
-        public void Run()
+        public void MilesToFeet()
         {
             OutputHeading();
             InputMiles();
@@ -31,6 +35,21 @@ namespace ConsoleAppProject.App01
             OutputFeet();
         }
 
+        public void FeetToMiles()
+        {
+            OutputHeading();
+            InputFeet();
+            CalculateMiles();
+            OutputMiles();
+        }
+
+        public void MilesToMetres()
+        {
+            OutputHeading();
+            InputMiles();
+            CalculateMetres();
+            OutputMetres();
+        }
         /// <summary>
         /// Prompt the user to enter the distance in miles
         /// Input the miles as a double number.
@@ -42,6 +61,20 @@ namespace ConsoleAppProject.App01
             miles = Convert.ToDouble(value);
         }
 
+        private void InputMetres()
+        {
+            Console.Write("Please enter the number of metres > ");
+            string value = Console.ReadLine();
+            metres = Convert.ToDouble(value);
+        }
+
+        private void InputFeet()
+        {
+            Console.Write("Please enter the number of feet > ");
+            string value = Console.ReadLine();
+            feet = Convert.ToDouble(value);
+        }
+
         /// <summary>
         /// 
         /// </summary>
@@ -50,12 +83,47 @@ namespace ConsoleAppProject.App01
             feet = miles * FEET_IN_MILES;
         }
 
+
+        /// <summary>
+        /// 
+        /// </summary>
+        private void CalculateMiles()
+        {
+            miles = feet / FEET_IN_MILES;
+        }
+
+
+        /// <summary>
+        /// 
+        /// </summary>
+        private void CalculateMetres()
+        {
+            metres = miles * METRES_IN_MILES;
+        }
+
         /// <summary>
         /// 
         /// </summary>
         private void OutputFeet()
         {
             Console.WriteLine(miles + " miles is " + feet + " feet!");
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        private void OutputMiles()
+        {
+            Console.WriteLine(feet + " feet is " + miles + " miles!");
+        }
+
+
+        /// <summary>
+        /// 
+        /// </summary>
+        private void OutputMetres()
+        {
+            Console.WriteLine(miles + " miles is " + metres + " metres!");
         }
 
         /// <summary>
