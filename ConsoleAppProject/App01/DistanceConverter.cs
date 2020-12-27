@@ -10,9 +10,10 @@ namespace ConsoleAppProject.App01
     /// </author>
     public class DistanceConverter
     {
-        // Distance measured in miles
+        public const int FEET_IN_MILES = 5280;
+
         private double miles;
-        // Distance measured in feet
+
         private double feet;
 
         /// <summary>
@@ -22,6 +23,7 @@ namespace ConsoleAppProject.App01
         /// </summary>
         public void Run()
         {
+            OutputHeading();
             InputMiles();
             CalculateFeet();
             OutputFeet();
@@ -38,12 +40,32 @@ namespace ConsoleAppProject.App01
             miles = Convert.ToDouble(value);
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
         private void CalculateFeet()
         {
+            feet = miles * FEET_IN_MILES;
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
         private void OutputFeet()
         {
+            Console.WriteLine(miles + " miles is " + feet + " feet!");
+        }
+
+        /// <summary>
+        /// Output a short description of the application
+        /// and the name of the author.
+        /// </summary>
+        private void OutputHeading()
+        {
+            Console.WriteLine("\n-------------------------------------");
+            Console.WriteLine("      Convert Miles to Feet          ");
+            Console.WriteLine("          by Derek Peacock           ");
+            Console.WriteLine("-------------------------------------\n");
         }
     }
 }
