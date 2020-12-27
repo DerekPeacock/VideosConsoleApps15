@@ -3,10 +3,12 @@
 namespace ConsoleAppProject.App01
 {
     /// <summary>
-    /// Please describe the main features of this App
+    /// This App will prompt the user to input a distance
+    /// measured in miles and it will calculate and
+    /// output the equivalant distance in feet.
     /// </summary>
     /// <author>
-    /// Student Name version 0.1
+    /// Derek's version 0.1
     /// </author>
     public class DistanceConverter
     {
