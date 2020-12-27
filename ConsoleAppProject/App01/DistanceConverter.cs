@@ -4,11 +4,11 @@ namespace ConsoleAppProject.App01
 {
     /// <summary>
     /// This App will prompt the user to input a distance
-    /// measured in miles and it will calculate and
-    /// output the equivalent distance in feet.
+    /// measured in one unit and it will calculate and
+    /// output the equivalent distance in another unit.
     /// </summary>
     /// <author>
-    /// Derek's version 0.1
+    /// Derek's version 0.3
     /// </author>
     public class DistanceConverter
     {
@@ -29,7 +29,8 @@ namespace ConsoleAppProject.App01
         /// </summary>
         public void MilesToFeet()
         {
-            OutputHeading();
+            OutputHeading("Converting Miles to Feet");
+
             InputMiles();
             CalculateFeet();
             OutputFeet();
@@ -37,7 +38,8 @@ namespace ConsoleAppProject.App01
 
         public void FeetToMiles()
         {
-            OutputHeading();
+            OutputHeading("Converting Feet to Miles");
+
             InputFeet();
             CalculateMiles();
             OutputMiles();
@@ -45,7 +47,8 @@ namespace ConsoleAppProject.App01
 
         public void MilesToMetres()
         {
-            OutputHeading();
+            OutputHeading("Converting Miles to Metres");
+
             InputMiles();
             CalculateMetres();
             OutputMetres();
@@ -128,14 +131,18 @@ namespace ConsoleAppProject.App01
 
         /// <summary>
         /// Output a short description of the application
-        /// and the name of the author.
+        /// and the name of the author and a prompt to
+        /// inform the use which units are being converted
         /// </summary>
-        private void OutputHeading()
+        private void OutputHeading(String prompt)
         {
             Console.WriteLine("\n-------------------------------------");
-            Console.WriteLine("      Convert Miles to Feet          ");
+            Console.WriteLine("         Distance Converter          ");
             Console.WriteLine("          by Derek Peacock           ");
             Console.WriteLine("-------------------------------------\n");
+
+            Console.WriteLine(prompt);
+            Console.WriteLine();
         }
     }
 }
