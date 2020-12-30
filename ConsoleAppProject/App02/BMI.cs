@@ -53,7 +53,7 @@ namespace ConsoleAppProject.App02
         ///</summary>
         public void CalculateIndex()
         {
-            OutputHeading();
+            ConsoleHelper.OutputHeading("Body Mass Index Calculator");
 
             UnitSystems unitSystem = SelectUnits();
 
@@ -208,19 +208,6 @@ namespace ConsoleAppProject.App02
             double number = Convert.ToDouble(value);
 
             return number;
-        }
-
-        /// <summary>
-        /// Output a short description of the application
-        /// and the name of the author and a prompt to
-        /// inform the use which units are being converted
-        /// </summary>
-        private void OutputHeading()
-        {
-            Console.WriteLine("\n-------------------------------------");
-            Console.WriteLine("      Body Mass Index Calculator  ");
-            Console.WriteLine("          by Derek Peacock           ");
-            Console.WriteLine("-------------------------------------\n");
         }
 
     }

@@ -21,24 +21,17 @@ namespace ConsoleAppProject
         {
             Console.ForegroundColor = ConsoleColor.Yellow;
 
-            Console.WriteLine("------------------------------------------------");
-            Console.WriteLine("  BNU CO453 Applications Programming 2020-2021!");
-            Console.WriteLine("              by Derek Peacock");
-            Console.WriteLine("------------------------------------------------");
-            Console.WriteLine();
+            ConsoleHelper.OutputHeading("BNU CO453 Applications Programming 2020-2021!");
 
-            Console.WriteLine("1. Distance Converter");
-            Console.WriteLine("2. BMI Calculator");
-            Console.WriteLine();
+            string[] choices = { "Distance Converter", "BMI Calculator" };
+            int choiceNo = ConsoleHelper.SelectChoice(choices);
 
-            Console.Write("Please enter your choice of App > ");
-            string choice = Console.ReadLine();
 
-            if (choice == "1")
+            if (choiceNo == 1)
             {
                 converter.ConvertDistance();
             }
-            else if (choice == "2")
+            else if (choiceNo == 2)
             {
                 calculator.CalculateIndex();
             }
