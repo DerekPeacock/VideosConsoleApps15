@@ -21,7 +21,8 @@ namespace ConsoleAppProject
 
             // Get the user's choice
 
-            int choiceNo = (int)InputNumber("\n Please enter your choice > ");
+            int choiceNo = (int)InputNumber("\n Please enter your choice > ", 
+                                            1, choices.Length);
             return choiceNo;
         }
 
@@ -45,14 +46,57 @@ namespace ConsoleAppProject
         /// </summary>
         public static double InputNumber(string prompt)
         {
+            double number = 0;
+            bool isValid = false;
 
-            Console.Write(prompt);
-            string value = Console.ReadLine();
-            double number = Convert.ToDouble(value);
+            do
+            {
+                Console.Write(prompt);
+                string value = Console.ReadLine();
+
+                try
+                {
+                    number = Convert.ToDouble(value);
+                    isValid = true;
+                }
+                catch (Exception)
+                {
+                    isValid = false;
+                    Console.WriteLine(" INVALID NUMBER!");
+                }
+
+            } while (!isValid);
 
             return number;
         }
 
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public static double InputNumber(string prompt, double min, double max)
+        {
+            bool isValid = false;
+            double number = 0;
+
+            do
+            {
+                number = InputNumber(prompt);
+
+                if (number < min || number > max)
+                {
+                    isValid = false;
+                    Console.WriteLine($"Number must be between {min} and {max}");
+                }
+                else isValid = true;
+
+            } while (!isValid);
+
+            return number;
+
+
+
+        }
 
         /// <summary>
         /// Output a short description of the application
@@ -61,10 +105,15 @@ namespace ConsoleAppProject
         /// </summary>
         public static void OutputHeading(string title)
         {
-            Console.WriteLine("\n-------------------------------------");
-            Console.WriteLine($"         {title}          ");
-            Console.WriteLine("          by Derek Peacock           ");
-            Console.WriteLine("-------------------------------------\n");
+            Console.ForegroundColor = ConsoleColor.Green;
+
+            Console.WriteLine("\n---------------------------------");
+            Console.WriteLine($"    {title}          ");
+            Console.WriteLine("     by Derek Peacock           ");
+            Console.WriteLine("---------------------------------" +
+                "\n");
+
+            Console.ForegroundColor = ConsoleColor.Yellow;
         }
     }
 }

@@ -21,7 +21,7 @@ namespace ConsoleAppProject
         {
             Console.ForegroundColor = ConsoleColor.Yellow;
 
-            ConsoleHelper.OutputHeading("BNU CO453 Applications Programming 2020-2021!");
+            ConsoleHelper.OutputHeading("BNU CO453 2020-2021!");
 
             string[] choices = { "Distance Converter", "BMI Calculator" };
             int choiceNo = ConsoleHelper.SelectChoice(choices);
