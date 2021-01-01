@@ -3,14 +3,7 @@
 namespace ConsoleAppProject.App02
 {
 
-    /// <summary>
-    /// Two unit systems measuring weight and height
-    /// </summary>
-    public enum UnitSystems
-    {
-        Metric,
-        Imperial
-    }
+
 
     /// <summary>
     /// This class contains methods for calculating 
@@ -44,6 +37,14 @@ namespace ConsoleAppProject.App02
 
         private double pounds;
         private int inches;
+
+        public UnitSystems UnitSystems
+        {
+            get => default;
+            set
+            {
+            }
+        }
 
         ///<summary>
         /// Prompt the user to select Imperial or Metric

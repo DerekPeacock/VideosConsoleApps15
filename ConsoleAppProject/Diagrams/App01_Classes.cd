@@ -14,6 +14,13 @@
       <FileName>Program.cs</FileName>
     </TypeIdentifier>
   </Class>
+  <Class Name="ConsoleAppProject.ConsoleHelper">
+    <Position X="5.5" Y="3" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAIAQAAAAAAAAACAAgAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>ConsoleHelper.cs</FileName>
+    </TypeIdentifier>
+  </Class>
   <Enum Name="ConsoleAppProject.App01.DistanceUnits">
     <Position X="5.5" Y="0.75" Width="1.5" />
     <TypeIdentifier>
