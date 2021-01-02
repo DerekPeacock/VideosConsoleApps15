@@ -23,5 +23,22 @@ namespace ConsoleApp.Tests
 
             Assert.AreEqual(expectedGrade, actualGrade);
         }
+
+        [TestMethod]
+        public void TestCovert39ToGradeF()
+        {
+            // Arrange
+
+            Grades expectedGrade = Grades.F;
+
+            // Act
+
+            Grades actualGrade = converter.ConvertToGrade(39);
+
+            // Assert
+
+            Assert.AreEqual(expectedGrade, actualGrade);
+        }
+
     }
 }
