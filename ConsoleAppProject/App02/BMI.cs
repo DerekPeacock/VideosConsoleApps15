@@ -2,9 +2,6 @@
 
 namespace ConsoleAppProject.App02
 {
-
-
-
     /// <summary>
     /// This class contains methods for calculating 
     /// the user's BMI (Body Mass Index) using 
@@ -41,10 +38,8 @@ namespace ConsoleAppProject.App02
         public UnitSystems UnitSystems
         {
             get => default;
-            set
-            {
-            }
         }
+
 
         ///<summary>
         /// Prompt the user to select Imperial or Metric

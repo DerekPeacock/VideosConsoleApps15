@@ -21,9 +21,6 @@ namespace ConsoleAppProject
         public static BMI BMI
         {
             get => default;
-            set
-            {
-            }
         }
 
         public static void Main(string[] args)
