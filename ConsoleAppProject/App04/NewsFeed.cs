@@ -63,14 +63,14 @@ namespace ConsoleAppProject.App04
             foreach (MessagePost message in messages)
             {
                 message.Display();
-                Console.WriteLine();   // empty line between posts
+                Console.WriteLine();   
             }
 
             // display all photos
             foreach (PhotoPost photo in photos)
             {
                 photo.Display();
-                Console.WriteLine();   // empty line between posts
+                Console.WriteLine();  
             }
         }
     }
