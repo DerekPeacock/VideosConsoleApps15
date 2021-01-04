@@ -84,7 +84,14 @@ namespace ConsoleAppProject.App03
         /// </summary>
         public void CalculateStats()
         {
-            throw new NotImplementedException();
+            double total = 0;
+
+            foreach(int mark in Marks)
+            {
+                total = total + mark;
+            }
+
+            Mean = total / Marks.Length;
         }
 
         /// <summary>
@@ -92,7 +99,16 @@ namespace ConsoleAppProject.App03
         /// </summary>
         public void CalculateGradeProfile()
         {
-            throw new NotImplementedException();
+            for (int i = 0; i < GradeProfile.Length; i++)
+            {
+                GradeProfile[i] = 0;
+            }
+
+            foreach (int mark in Marks)
+            {
+                Grades grade = ConvertToGrade(mark);
+                GradeProfile[(int)grade]++;
+            }
         }
     }
 
