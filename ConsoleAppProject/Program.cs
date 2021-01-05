@@ -23,7 +23,7 @@ namespace ConsoleAppProject
 
         private static StudentGrades grades = new StudentGrades();
 
-        private static NewsFeed newsFeed = new NewsFeed();
+        private static NetworkApp app04 = new NetworkApp();
 
         public static BMI BMI
         {
@@ -50,13 +50,15 @@ namespace ConsoleAppProject
             {
                 calculator.CalculateIndex();
             }
-            else if(choiceNo == 3)
+            else if (choiceNo == 3)
             {
-
+                grades.DisplayMenu();
             }
             else if(choiceNo == 4)
             {
+                app04.DisplayMenu();
             }
+
             else Console.WriteLine("Invalid Choice !");
 
         }

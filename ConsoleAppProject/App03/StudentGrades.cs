@@ -50,6 +50,11 @@ namespace ConsoleAppProject.App03
             Marks = new int[Students.Length];
         }
 
+        public void DisplayMenu()
+        {
+
+        }
+
         /// <summary>
         /// 
         /// </summary>
