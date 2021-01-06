@@ -1,9 +1,13 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace ConsoleAppProject.App04
 {
+    /// <summary>
+    /// This class offers a console based user interface for the
+    /// NewsFeed class and allows users to make multiple posts
+    /// 
+    /// Author: Derek Peacock
+    /// </summary>
     public class NetworkApp
     {
         private NewsFeed news = new NewsFeed();
@@ -13,7 +17,7 @@ namespace ConsoleAppProject.App04
         /// </summary>
         public void DisplayMenu()
         {
-            ConsoleHelper.OutputHeading("    Derek's News Feed");
+            ConsoleHelper.OutputHeading("Derek's News Feed");
 
             string[] choices = new string[]
             {
@@ -44,14 +48,48 @@ namespace ConsoleAppProject.App04
             news.Display();
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
         private void PostImage()
         {
-            throw new NotImplementedException();
+            ConsoleHelper.OutputTitle("Posting an Image/Photo");
+
+            Console.Write(" Please enter your image filename > ");
+            string filename = Console.ReadLine();
+
+
+            Console.Write(" Please enter your image caption > ");
+            string caption = Console.ReadLine();
+
+            PhotoPost post = new PhotoPost(NewsFeed.AUTHOR, filename, caption);
+            news.AddPhotoPost(post);
+
+            ConsoleHelper.OutputTitle("You have just posted this image:");
+            post.Display();
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
         private void PostMessage()
         {
-            throw new NotImplementedException();
+            ConsoleHelper.OutputTitle("Posting an Message");
+
+
+            Console.Write(" Please enter your name > ");
+            string author = Console.ReadLine();
+
+            Console.Write(" Please enter your message > ");
+            string message = Console.ReadLine();
+
+
+
+            MessagePost post = new MessagePost(author, message);
+            news.AddMessagePost(post);
+
+            ConsoleHelper.OutputTitle(" You have just posted this message:");
+            post.Display();
         }
     }
 }

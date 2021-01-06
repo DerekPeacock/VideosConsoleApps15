@@ -65,6 +65,8 @@ namespace ConsoleAppProject.App04
         ///</summary>
         public void Display()
         {
+            ConsoleHelper.OutputTitle("Displaying All Posts");
+
             // display all text posts
             foreach (Post post in posts)
             {

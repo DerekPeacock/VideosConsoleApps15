@@ -106,13 +106,29 @@ namespace ConsoleAppProject
         {
             Console.ForegroundColor = ConsoleColor.Green;
 
-            Console.WriteLine("\n---------------------------------");
+            Console.WriteLine("\n ---------------------------------");
             Console.WriteLine($"    {title}          ");
             Console.WriteLine("     by Derek Peacock           ");
-            Console.WriteLine("---------------------------------" +
+            Console.WriteLine(" ---------------------------------" +
                 "\n");
 
             Console.ForegroundColor = ConsoleColor.Yellow;
+        }
+
+        public static void OutputTitle(string title)
+        {
+            Console.ForegroundColor = ConsoleColor.Green;
+
+            Console.WriteLine($"\n {title}");
+            Console.Write(" ");
+
+            for(int count = 0; count <= title.Length; count++)
+            {
+                Console.Write("-");
+            }
+
+            Console.WriteLine("\n");
+            Console.ResetColor();
         }
     }
 }
