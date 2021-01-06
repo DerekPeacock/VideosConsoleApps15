@@ -55,6 +55,8 @@ namespace ConsoleAppProject.App04
         {
             ConsoleHelper.OutputTitle("Posting an Image/Photo");
 
+            string author = InputName();
+
             Console.Write(" Please enter your image filename > ");
             string filename = Console.ReadLine();
 
@@ -62,7 +64,7 @@ namespace ConsoleAppProject.App04
             Console.Write(" Please enter your image caption > ");
             string caption = Console.ReadLine();
 
-            PhotoPost post = new PhotoPost(NewsFeed.AUTHOR, filename, caption);
+            PhotoPost post = new PhotoPost(author, filename, caption);
             news.AddPhotoPost(post);
 
             ConsoleHelper.OutputTitle("You have just posted this image:");
@@ -76,9 +78,7 @@ namespace ConsoleAppProject.App04
         {
             ConsoleHelper.OutputTitle("Posting an Message");
 
-
-            Console.Write(" Please enter your name > ");
-            string author = Console.ReadLine();
+            string author = InputName();
 
             Console.Write(" Please enter your message > ");
             string message = Console.ReadLine();
@@ -90,6 +90,17 @@ namespace ConsoleAppProject.App04
 
             ConsoleHelper.OutputTitle(" You have just posted this message:");
             post.Display();
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        private string InputName()
+        {
+            Console.Write(" Please enter your name > ");
+            string author = Console.ReadLine();
+
+            return author;
         }
     }
 }
