@@ -21,8 +21,15 @@ namespace ConsoleAppProject.App04
 
             string[] choices = new string[]
             {
-                "Post Message", "Post Image", "" +
-                "Display All Posts", "Quit"
+                "Post Message", 
+                "Post Image",
+                "Remove Post", 
+                "Display All Posts", 
+                "Display Posts by Author",
+                "Display Posts by Date,",
+                "Add Comments to Post,", 
+                "Like/Unlike Post",
+                "Quit"
             };
 
             bool wantToQuit = false;
@@ -35,12 +42,46 @@ namespace ConsoleAppProject.App04
                 {
                     case 1: PostMessage(); break;
                     case 2: PostImage(); break;
-                    case 3: DisplayAll(); break;
-                    case 4: wantToQuit = true; break;
+                    case 3: RemovePost();break;
+                    case 4: DisplayAll(); break;
+                    case 5: DisplayByAuthor();break;
+                    case 6: DisplayByDate(); break;
+                    case 7: AddComment();break;
+                    case 8: LikePosts(); break;
+                    case 9: wantToQuit = true; break;
                 }
 
             } while (!wantToQuit);
 
+        }
+
+        private void LikePosts()
+        {
+            throw new NotImplementedException();
+        }
+
+        private void AddComment()
+        {
+            throw new NotImplementedException();
+        }
+
+        private void DisplayByDate()
+        {
+            throw new NotImplementedException();
+        }
+
+        private void DisplayByAuthor()
+        {
+            throw new NotImplementedException();
+        }
+
+        private void RemovePost()
+        {
+            ConsoleHelper.OutputTitle($"Removing a Post");
+
+            int id = (int)ConsoleHelper.InputNumber(" Please enter the post id > ",
+                                                    1, Post.GetNumberOfPosts());
+            news.RemovePost(id);
         }
 
         private void DisplayAll()
