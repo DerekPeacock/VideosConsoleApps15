@@ -1,6 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace ConsoleAppProject.App03
 {
@@ -52,7 +50,7 @@ namespace ConsoleAppProject.App03
 
         public void DisplayMenu()
         {
-
+            throw new NotImplementedException();
         }
 
         /// <summary>

@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-
+using System.IO;
 
 namespace ConsoleAppProject.App04
 {
@@ -24,6 +24,11 @@ namespace ConsoleAppProject.App04
 
         private readonly List<Post> posts;
 
+        // Using System.IO
+        protected StreamWriter fileWriter;
+
+        protected string filename;
+
         ///<summary>
         /// Construct an empty news feed.
         ///</summary>
@@ -36,6 +41,8 @@ namespace ConsoleAppProject.App04
 
             PhotoPost photoPost = new PhotoPost(AUTHOR, "Photo1.jpg", "Visual Studio 2019");
             AddPhotoPost(photoPost);
+
+            filename = "D:/Projects/PostData.txt";
         }
 
 
@@ -114,6 +121,31 @@ namespace ConsoleAppProject.App04
             {
                 post.Display();
                 Console.WriteLine();   
+            }
+        }
+
+        public void SaveFile()
+        {
+            OpenFile();
+        }
+
+
+        /// <summary>
+        /// Open a file for saving the posts
+        /// </summary>
+        private void OpenFile()
+        {
+            try
+            {
+                var output = new FileStream(
+                    filename, FileMode.OpenOrCreate,
+                    FileAccess.Write);
+
+                fileWriter = new StreamWriter(output);
+            }
+            catch (IOException e)
+            {
+                Console.WriteLine("  File Open/Create Failed!!!");
             }
         }
     }

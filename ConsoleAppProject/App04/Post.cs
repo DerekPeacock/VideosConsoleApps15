@@ -1,9 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Threading;
+
 
 namespace ConsoleAppProject.App04
 {
+    [Serializable]
     public class Post
     {
         public int PostId { get; }

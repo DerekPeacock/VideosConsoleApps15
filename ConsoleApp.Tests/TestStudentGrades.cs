@@ -8,7 +8,7 @@ namespace ConsoleApp.Tests
     {
         private readonly StudentGrades converter = new StudentGrades();
 
-        private int[] testMarks;
+        private readonly int[] testMarks;
 
         public TestStudentGrades()
         {

@@ -10,7 +10,7 @@ namespace ConsoleAppProject.App04
     /// </summary>
     public class NetworkApp
     {
-        private NewsFeed news = new NewsFeed();
+        private readonly NewsFeed news = new NewsFeed();
         
         /// <summary>
         /// 
