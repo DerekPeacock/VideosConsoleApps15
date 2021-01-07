@@ -37,7 +37,8 @@ namespace ConsoleAppProject
             ConsoleHelper.OutputHeading("BNU CO453 2020-2021!");
 
             string[] choices = { "Distance Converter", "BMI Calculator",
-                                 "Student Marks", "Social Network"};
+                                 "Student Marks", "Social Network",
+                                 "Rock-Paper-Scissors Game"};
 
             int choiceNo = ConsoleHelper.SelectChoice(choices);
 
