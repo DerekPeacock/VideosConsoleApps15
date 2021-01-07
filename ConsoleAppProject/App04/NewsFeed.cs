@@ -66,30 +66,24 @@ namespace ConsoleAppProject.App04
             posts.Add(photo);
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
         public void RemovePost(int id)
         {
             Post post = FindPost(id);
             
             if (post == null)
             {
-                Console.WriteLine($" \nPost with ID = {id} does not exist!!\n");
+                Console.WriteLine($" \n Post with ID = {id} does not exist!!\n");
             }
             else
             {
-                Console.WriteLine($" \nThe following Post {id} has been removed!\n");
-
-                if(post is MessagePost mp)
-                {
-                    mp.Display();
-                }
-                else if(post is PhotoPost pp)
-                {
-                    pp.Display();
-                }
+                Console.WriteLine($" \n The following Post {id} has been removed!\n");
 
                 posts.Remove(post);
+                post.Display();
             }
-
         }
 
         /// <summary>
