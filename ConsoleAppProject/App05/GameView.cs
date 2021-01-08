@@ -69,6 +69,9 @@ namespace ConsoleAppProject.App05
             game.Start();
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
         private void SetupConsole()
         {
             Console.SetWindowSize(100, 40);
