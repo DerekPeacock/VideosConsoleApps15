@@ -79,7 +79,15 @@ namespace ConsoleAppProject.App05
 
         public void End()
         {
-
+            if (Computer.Score > Human.Score)
+            {
+                Winner = Computer;
+            }
+            else if (Computer.Score < Human.Score)
+            {
+                Winner = Human;
+            }
+            else Winner = null;
         }
     }
 }
