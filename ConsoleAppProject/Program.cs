@@ -2,6 +2,7 @@
 using ConsoleAppProject.App02;
 using ConsoleAppProject.App03;
 using ConsoleAppProject.App04;
+using ConsoleAppProject.App05;
 
 using System;
 
@@ -24,6 +25,8 @@ namespace ConsoleAppProject
         private static StudentGrades grades = new StudentGrades();
 
         private static NetworkApp app04 = new NetworkApp();
+
+        private static GameView app05 = new GameView();
 
         public static BMI BMI
         {
@@ -59,7 +62,10 @@ namespace ConsoleAppProject
             {
                 app04.DisplayMenu();
             }
-
+            else if (choiceNo == 5)
+            {
+                app05.Play();
+            }
             else Console.WriteLine("Invalid Choice !");
 
         }
