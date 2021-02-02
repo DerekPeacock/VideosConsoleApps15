@@ -1,0 +1,20 @@
+﻿@page
+@using ConsoleAppProject.App02
+@model BodyMassApp.Pages.HealthMessageModel
+@{
+    BMI bmi = new BMI();
+    bmi.Index = Model.BmiIndex;
+}
+
+<header class="jumbotron">
+    <h1>BMI Health Message</h1>
+</header>
+<section>
+    <p>
+        @bmi.GetHealthMessage()
+    </p>
+
+    <p>
+        @bmi.GetBameMessage()
+    </p>
+</section>
