@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using ConsoleAppProject.App03;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
@@ -24,6 +25,35 @@ namespace StudentGradesMVC.Controllers
         {
             return View(await _context.Students.ToListAsync());
         }
+
+
+        public async Task<IActionResult> Analyse()
+        {
+            StudentGrades gradesApp = new StudentGrades();
+
+            List<Student> students = await _context.Students.ToListAsync();
+
+            string[] studentArray = new string[students.Count];
+            int[] markArray = new int[students.Count];
+
+            int index = 0;
+
+            foreach(Student student in students)
+            {
+                studentArray[index] = student.Name;
+                markArray[index] = student.Mark;
+                index++;
+            }
+
+            gradesApp.Marks = markArray;
+            gradesApp.Students = studentArray;
+
+            gradesApp.CalculateStats();
+            gradesApp.CalculateGradeProfile();
+
+            return View(gradesApp);
+        }
+
 
         // GET: Students/Details/5
         public async Task<IActionResult> Details(int? id)

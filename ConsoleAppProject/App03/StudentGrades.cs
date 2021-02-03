@@ -78,7 +78,23 @@ namespace ConsoleAppProject.App03
             {
                 return Grades.F;
             }
-            else return Grades.D;
+            else if (mark >= LowestGradeD && mark < LowestGradeC)
+            {
+                return Grades.D;
+            }
+            else if (mark >= LowestGradeC && mark < LowestGradeB)
+            {
+                return Grades.C;
+            }
+            else if (mark >= LowestGradeB && mark < LowestGradeA)
+            {
+                return Grades.B;
+            }
+            else if (mark >= LowestGradeA && mark <= HighestMark)
+            {
+                return Grades.A;
+            }
+            return Grades.F;
 
         }
 
@@ -89,9 +105,14 @@ namespace ConsoleAppProject.App03
         {
             double total = 0;
 
+            Minimum = HighestMark;
+            Maximum = 0;
+
             foreach(int mark in Marks)
             {
                 total = total + mark;
+                if (mark > Maximum) Maximum = mark;
+                if (mark < Minimum) Minimum = mark;
             }
 
             Mean = total / Marks.Length;
