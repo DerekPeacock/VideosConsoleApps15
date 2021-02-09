@@ -17,9 +17,9 @@ namespace ConsoleAppProject.App01
 
         public const double FEET_IN_METRES = 3.28084;
 
-        public const string FEET = "feet";
-        public const string METRES = "metres";
-        public const string MILES = "miles";
+        public const string FEET = "Feet";
+        public const string METRES = "Metres";
+        public const string MILES = "Miles";
 
         public double FromDistance { get; set; }
         public double ToDistance { get; set; }
@@ -66,6 +66,22 @@ namespace ConsoleAppProject.App01
             else if(FromUnit == FEET && ToUnit == MILES)
             {
                 ToDistance = FromDistance / FEET_IN_MILES;
+            }
+            else if (FromUnit == MILES && ToUnit == METRES)
+            {
+                ToDistance = FromDistance * METRES_IN_MILES;
+            }
+            else if (FromUnit == METRES && ToUnit == MILES)
+            {
+                ToDistance = FromDistance / METRES_IN_MILES;
+            }
+            else if (FromUnit == FEET && ToUnit == METRES)
+            {
+                ToDistance = FromDistance / FEET_IN_METRES;
+            }
+            else if (FromUnit == METRES && ToUnit == FEET)
+            {
+                ToDistance = FromDistance * FEET_IN_METRES;
             }
         }
 
