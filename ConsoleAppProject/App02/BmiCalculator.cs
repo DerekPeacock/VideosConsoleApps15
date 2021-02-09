@@ -11,7 +11,7 @@ namespace ConsoleAppProject.App02
     /// <Author>
     /// Derek Peacock App02: Version 1.0
     /// </Author>
-    public class BMI
+    public class BmiCalculator
     {
         public const double Underweight = 18.5;
         public const double NormalRange = 24.9;
@@ -29,11 +29,13 @@ namespace ConsoleAppProject.App02
         // Metric Details
 
         public double Kilograms { get; set; }
-        public double Metres { get; set; }
+        public int Centimetres { get; set; }
 
         // Imperial Details
-
-        public double Pounds { get; set; }
+        public int Stones { get; set; }
+        public int Pounds { get; set; }
+        
+        public int Feet { get; set; }
         public int Inches { get; set; }
 
         public UnitSystems UnitSystems
@@ -41,6 +43,8 @@ namespace ConsoleAppProject.App02
             get => default;
         }
 
+
+        private double metres;
 
         ///<summary>
         /// Prompt the user to select Imperial or Metric
@@ -72,12 +76,15 @@ namespace ConsoleAppProject.App02
 
         public void CalculateMetricBMI()
         {
-            Index = Kilograms / (Metres * Metres);
+            Index = Kilograms / (metres * metres);
         }
 
         public void CalculateImperialBMI()
         {
-            Index = Pounds * 703 / (Inches * Inches);
+            Inches += Feet * InchesInFeet;
+            Pounds += Stones * PoundsInStones;
+
+            Index = (double)Pounds * 703 / (Inches * Inches);
         }
 
         /// <summary>
@@ -86,14 +93,15 @@ namespace ConsoleAppProject.App02
         /// </summary>
         private UnitSystems SelectUnits()
         {
+            string[] choices = new string[]
+            {
+                "Metric Units",
+                "Imperial Units"
+            };
 
-            Console.WriteLine(" 1. Metric Units");
-            Console.WriteLine(" 2. Imperial Units");
+            int choice = ConsoleHelper.SelectChoice(choices);
 
-            Console.Write("\n Please enter your choice of units > ");
-            string choice = Console.ReadLine();
-
-            if (choice == "1")
+            if (choice == 1)
             {
                 return UnitSystems.Metric;
             }
@@ -106,22 +114,18 @@ namespace ConsoleAppProject.App02
         /// </summary>
         private void InputImperialDetails()
         {
-            Console.WriteLine(" Enter your height in feet and inches ");
+            Console.WriteLine(" Enter your height to the nearest feet and inches ");
             Console.WriteLine();
 
-            double feet = InputNumber("\n Enter your height in feet > ");
-            Inches = (int)InputNumber(" Enter your height in inches > ");
-
-            Inches += (int)feet * InchesInFeet;
+            Feet = (int)ConsoleHelper.InputNumber("\n Enter your height in feet > ");
+            Inches = (int)ConsoleHelper.InputNumber(" Enter your height in inches > ");
 
             Console.WriteLine();
-            Console.Write(" Enter your weight in stones and pounds");
+            Console.Write(" Enter your weight to the nearest stones and pounds");
             Console.WriteLine();
 
-            double stones = InputNumber(" Enter your weight in stones > ");
-            Pounds = InputNumber(" Enter your weight in pounds > ");
-
-            Pounds += stones * PoundsInStones;
+            Stones = (int)ConsoleHelper.InputNumber(" Enter your weight in stones > ");
+            Pounds = (int)ConsoleHelper.InputNumber(" Enter your weight in pounds > ");
         }
 
         /// <summary>
@@ -130,10 +134,12 @@ namespace ConsoleAppProject.App02
         /// </summary>
         private void InputMetricDetails()
         {
-            Metres = InputNumber(
-                " \n Enter your height in metres > ");
+            Centimetres = (int)ConsoleHelper.InputNumber(
+                " \n Enter your height in centimetres > ");
 
-            Kilograms = InputNumber(
+            metres = (double)Centimetres / 100;
+
+            Kilograms = ConsoleHelper.InputNumber(
                 " Enter your weight in kilograms > ");
         }
 
@@ -192,22 +198,13 @@ namespace ConsoleAppProject.App02
         {
             StringBuilder message = new StringBuilder("\n");
             message.Append(" If you are Black, Asian or other minority");
-            message.Append(" ethnic groups, you have a higher risk");
+            message.Append("\n ethnic groups, you have a higher risk");
             message.Append("\n");
-            message.Append("\t Adults 23.0 or more are at increased risk");
-            message.Append("\t Adults 27.5 or more are at high risk");
+            message.Append("\n Adults 23.0 or more are at increased risk");
+            message.Append("\n Adults 27.5 or more are at high risk");
             message.Append("\n");
 
             return message.ToString();
-        }
-
-        public double InputNumber(string prompt)
-        {
-            Console.Write(prompt);
-            string value = Console.ReadLine();
-            double number = Convert.ToDouble(value);
-
-            return number;
         }
 
     }

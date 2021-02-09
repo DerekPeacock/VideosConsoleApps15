@@ -1,21 +1,32 @@
-﻿using BodyMassMVC.Models;
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
 using System.Diagnostics;
+using WebApps.Models;
 using ConsoleAppProject.App02;
 
-namespace BodyMassMVC.Controllers
+
+namespace WebApps.Controllers
 {
     public class HomeController : Controller
     {
-        [HttpGet]
+
         public IActionResult Index()
         {
             return View();
         }
 
+        public IActionResult DistanceConverter()
+        {
+            return View();
+        }
+
+        [HttpGet]
+        public IActionResult BmiCalculator()
+        {
+            return View();
+        }
 
         [HttpPost]
-        public IActionResult Index(BmiCalculator bmi)
+        public IActionResult BmiCalculator(BmiCalculator bmi)
         {
             if (bmi.Centimetres > 140)
             {
@@ -34,16 +45,21 @@ namespace BodyMassMVC.Controllers
             double bmiIndex = bmi.Index;
 
             return RedirectToAction("HealthMessage", new { bmiIndex });
-
         }
-        public IActionResult Privacy()
+
+        public IActionResult HealthMessage(double bmiIndex)
+        {
+            return View(bmiIndex);
+        }
+
+        public IActionResult StudentMarks()
         {
             return View();
         }
 
-        public IActionResult HealthMessage(double BmiIndex)
+        public IActionResult Privacy()
         {
-            return View(BmiIndex);
+            return View();
         }
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]

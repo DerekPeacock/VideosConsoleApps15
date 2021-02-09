@@ -16,7 +16,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BodyMassApp", "BodyMassApp\
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BodyMassMVC", "BodyMassMVC\BodyMassMVC.csproj", "{3281507B-3F2F-4FCB-9E68-AB756A9FC0E7}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StudentGradesMVC", "StudentGradesMVC\StudentGradesMVC.csproj", "{4F47CB91-8D47-4D86-932B-91B4EA46905D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "StudentGradesMVC", "StudentGradesMVC\StudentGradesMVC.csproj", "{4F47CB91-8D47-4D86-932B-91B4EA46905D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebApps", "WebApps\WebApps.csproj", "{5DAA5FAD-3800-43EA-AA1D-C8A875BBADFE}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -44,6 +46,10 @@ Global
 		{4F47CB91-8D47-4D86-932B-91B4EA46905D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{4F47CB91-8D47-4D86-932B-91B4EA46905D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{4F47CB91-8D47-4D86-932B-91B4EA46905D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5DAA5FAD-3800-43EA-AA1D-C8A875BBADFE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5DAA5FAD-3800-43EA-AA1D-C8A875BBADFE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5DAA5FAD-3800-43EA-AA1D-C8A875BBADFE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5DAA5FAD-3800-43EA-AA1D-C8A875BBADFE}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

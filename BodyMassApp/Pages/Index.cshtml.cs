@@ -44,7 +44,7 @@ namespace BodyMassApp.Pages
 
         public IActionResult OnPost()
         {
-            BMI bmi = new BMI();
+            BmiCalculator bmi = new BmiCalculator();
 
             if(Feet > 0)
             {
@@ -54,7 +54,7 @@ namespace BodyMassApp.Pages
             }
             else if(Centimetres > 0)
             {
-                bmi.Metres = (double)Centimetres / 100;
+                bmi.Centimetres = Centimetres;
                 bmi.Kilograms = Kilograms;
                 bmi.CalculateMetricBMI();
             }

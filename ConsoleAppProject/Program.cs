@@ -20,7 +20,7 @@ namespace ConsoleAppProject
     {
         private static DistanceConverter converter = new DistanceConverter();
 
-        private static BMI calculator = new BMI();
+        private static BmiCalculator calculator = new BmiCalculator();
 
         private static StudentGrades grades = new StudentGrades();
 
@@ -28,7 +28,7 @@ namespace ConsoleAppProject
 
         private static GameView app05 = new GameView();
 
-        public static BMI BMI
+        public static BmiCalculator BMI
         {
             get => default;
         }

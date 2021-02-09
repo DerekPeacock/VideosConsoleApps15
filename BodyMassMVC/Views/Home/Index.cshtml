@@ -1,4 +1,4 @@
-﻿@model BodyMassMVC.Models.BmiViewModel
+﻿@model ConsoleAppProject.App02.BmiCalculator
 @{
 
     ViewData["Title"] = "Home Page";
@@ -12,7 +12,12 @@
         health message.
     </p>
 </div>
-
+@if(ViewBag.Error != null)
+{
+    <p class="text-danger">
+        @ViewBag.Error
+    </p>
+}
 <form method="post">
 
     <h2>Height</h2>
