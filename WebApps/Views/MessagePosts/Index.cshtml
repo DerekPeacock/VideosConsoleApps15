@@ -1,0 +1,71 @@
+﻿@model IEnumerable<WebApps.Models.MessagePost>
+
+@{
+    ViewData["Title"] = "Messages";
+}
+<header class="jumbotron">
+    <h1>PostBook Messages</h1>
+</header>
+
+<p>
+    <a class="btn btn-success" asp-action="Create">Add Message</a>
+    <a class="btn btn-info" 
+       asp-action="Index" asp-controller="PhotoPosts" >
+        View Photos
+    </a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                ID
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Username)
+            </th>
+            <th>
+                Time
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Message)
+            </th>
+            <th>
+                Likes
+            </th>
+            <th>
+
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model) 
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.PostId)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Username)
+                </td>
+                <td>
+                    @item.FormatElapsedTime()
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Message)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.likes)
+                </td>
+                <td>
+                    <a asp-action="Edit" class="btn btn-success"
+                       asp-route-id="@item.PostId">Edit</a>
+                    <a asp-action="Details"  class="btn btn-info"
+                       asp-route-id="@item.PostId">Details</a>
+                    <a asp-action="Delete"  class="btn btn-danger"
+                       asp-route-id="@item.PostId">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
