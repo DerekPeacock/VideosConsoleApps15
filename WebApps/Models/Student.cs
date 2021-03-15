@@ -1,7 +1,8 @@
 ﻿using System;
 using System.ComponentModel.DataAnnotations;
 
-namespace StudentGradesMVC.Models
+
+namespace WebApps.Models
 {
     public class Student
     {

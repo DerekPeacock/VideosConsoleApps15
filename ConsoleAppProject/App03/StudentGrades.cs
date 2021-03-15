@@ -56,7 +56,7 @@ namespace ConsoleAppProject.App03
         /// <summary>
         /// 
         /// </summary>
-        public void InputMarks()
+        private void InputMarks()
         {
             throw new NotImplementedException();
         }
@@ -64,7 +64,7 @@ namespace ConsoleAppProject.App03
         /// <summary>
         /// 
         /// </summary>
-        public void OutputMarks()
+        private void OutputMarks()
         {
             throw new NotImplementedException();
         }

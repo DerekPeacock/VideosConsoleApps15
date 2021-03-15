@@ -5,32 +5,36 @@
 }
 
 <header class="text-center jumbotron justify-content-center">
+    
     <h1>App01: Distance Converter</h1>
+    <h2>by Derek Peacock</h2>
     <p>
         This app will convert a distance entered in one unit into
         the equivalent distance measured in another unit.
     </p>
+
 </header>
+
 <form method="post">
+
     <h2>Convert from:</h2>
 
     <p>
         <label>From Unit: </label>
-        <select asp-for="@Model.FromUnit">
-            <option>@DistanceConverter.MILES</option>
-            <option>@DistanceConverter.METRES</option>
-            <option>@DistanceConverter.FEET</option>
+        <select asp-for="FromUnit" required 
+                asp-items="@Html.GetEnumSelectList<DistanceUnits>()">
         </select>
+        
     </p>
     <p>
         @if (Model.FromDistance == 0)
         {
-            <input type="text" asp-for="@Model.FromDistance" value=""
+            <input type="text" asp-for="FromDistance" value=""
                    placeholder="From Distance" required />
         }
         else
         {
-            <input type="text" asp-for="@Model.FromDistance"
+            <input type="text" asp-for="FromDistance"
                    placeholder="From Distance" required />
         }
     </p>
@@ -38,10 +42,8 @@
     <h2>Convert to:</h2>
     <p>
         <label>To Unit: </label>
-        <select asp-for="@Model.ToUnit">
-            <option>@DistanceConverter.MILES</option>
-            <option>@DistanceConverter.METRES</option>
-            <option>@DistanceConverter.FEET</option>
+        <select asp-for="ToUnit" required
+                asp-items="@Html.GetEnumSelectList<DistanceUnits>()">
         </select>
 
     </p>

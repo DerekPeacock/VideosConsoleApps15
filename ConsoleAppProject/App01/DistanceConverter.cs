@@ -17,20 +17,24 @@ namespace ConsoleAppProject.App01
 
         public const double FEET_IN_METRES = 3.28084;
 
-        public const string FEET = "Feet";
-        public const string METRES = "Metres";
-        public const string MILES = "Miles";
-
         public double FromDistance { get; set; }
         public double ToDistance { get; set; }
 
-        public string FromUnit { get; set; }
-        public string ToUnit { get; set; }
+        public DistanceUnits FromUnit { get; set; }
+        public DistanceUnits ToUnit { get; set; }
+
+        public DistanceUnits DistanceUnits
+        {
+            get => default;
+            set
+            {
+            }
+        }
 
         public DistanceConverter()
         {
-            FromUnit = MILES;
-            ToUnit = FEET;
+            FromUnit = DistanceUnits.Miles;
+            ToUnit = DistanceUnits.Feet;
         }
 
         /// <summary>
@@ -59,27 +63,31 @@ namespace ConsoleAppProject.App01
         /// </summary>
         public void CalculateDistance()
         {
-            if(FromUnit == MILES && ToUnit == FEET)
+            if(FromUnit == DistanceUnits.Miles && 
+                ToUnit == DistanceUnits.Feet)
             {
                 ToDistance = FromDistance * FEET_IN_MILES;
             }
-            else if(FromUnit == FEET && ToUnit == MILES)
+            else if(FromUnit == DistanceUnits.Feet && 
+                ToUnit == DistanceUnits.Miles)
             {
                 ToDistance = FromDistance / FEET_IN_MILES;
             }
-            else if (FromUnit == MILES && ToUnit == METRES)
+            else if (FromUnit == DistanceUnits.Miles && 
+                ToUnit == DistanceUnits.Metres)
             {
                 ToDistance = FromDistance * METRES_IN_MILES;
             }
-            else if (FromUnit == METRES && ToUnit == MILES)
+            else if (FromUnit == DistanceUnits.Metres && 
+                ToUnit == DistanceUnits.Miles)
             {
                 ToDistance = FromDistance / METRES_IN_MILES;
             }
-            else if (FromUnit == FEET && ToUnit == METRES)
+            else if (FromUnit == DistanceUnits.Feet && ToUnit == DistanceUnits.Metres)
             {
                 ToDistance = FromDistance / FEET_IN_METRES;
             }
-            else if (FromUnit == METRES && ToUnit == FEET)
+            else if (FromUnit == DistanceUnits.Metres && ToUnit == DistanceUnits.Feet)
             {
                 ToDistance = FromDistance * FEET_IN_METRES;
             }
@@ -88,21 +96,21 @@ namespace ConsoleAppProject.App01
         /// <summary>
         /// 
         /// </summary>
-        private string SelectUnit(string prompt)
+        private DistanceUnits SelectUnit(string prompt)
         {
             string[] choices =
             {
-                FEET,
-                METRES,
-                MILES
+                $"{DistanceUnits.Feet}",
+                $"{DistanceUnits.Metres}",
+                $"{DistanceUnits.Miles}"
             };
 
             Console.WriteLine(prompt);
             Console.WriteLine();
 
             int choiceNo = ConsoleHelper.SelectChoice(choices);
+            DistanceUnits unit = (DistanceUnits)choiceNo;
 
-            string unit = choices[choiceNo - 1];
             return unit;
         }
 

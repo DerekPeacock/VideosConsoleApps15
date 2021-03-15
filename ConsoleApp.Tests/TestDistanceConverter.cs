@@ -13,8 +13,8 @@ namespace ConsoleApp.Tests
 
             DistanceConverter converter = new DistanceConverter();
 
-            converter.FromUnit = DistanceConverter.MILES;
-            converter.ToUnit = DistanceConverter.FEET;
+            converter.FromUnit = DistanceUnits.Miles;
+            converter.ToUnit = DistanceUnits.Feet;
 
             converter.FromDistance = 1.0;
 
@@ -36,8 +36,8 @@ namespace ConsoleApp.Tests
 
             DistanceConverter converter = new DistanceConverter();
 
-            converter.FromUnit = DistanceConverter.FEET;
-            converter.ToUnit = DistanceConverter.MILES;
+            converter.FromUnit = DistanceUnits.Feet;
+            converter.ToUnit = DistanceUnits.Miles;
 
             converter.FromDistance = 5280;
 
