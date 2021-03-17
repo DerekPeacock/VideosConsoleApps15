@@ -16,7 +16,9 @@ namespace WebApps.Models
 
         public DateTime Timestamp { get; set; }
 
-        public int likes { get; set; }
+        public int Likes { get; set; }
+
+        public virtual ICollection<Comment> Comments { get; set; }
 
 
         /// <summary>
@@ -25,7 +27,7 @@ namespace WebApps.Models
         public Post()
         {
             Timestamp = DateTime.Now;
-            likes = 0;
+            Likes = 0;
         }
 
         /// <summary>
@@ -33,7 +35,7 @@ namespace WebApps.Models
         /// </summary>
         public void Like()
         {
-            likes++;
+            Likes++;
         }
 
         ///<summary>
@@ -41,9 +43,9 @@ namespace WebApps.Models
         ///</summary>
         public void Unlike()
         {
-            if (likes > 0)
+            if (Likes > 0)
             {
-                likes--;
+                Likes--;
             }
         }
 

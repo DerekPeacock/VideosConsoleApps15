@@ -10,37 +10,29 @@
         </a>
     </p>
 </header>
-<section>
-    <ol class="list-group">
-        <li class="list-group-item">
-            <a class="btn btn-success"
-               asp-controller="MessagePosts" asp-action="Index">
-                Add Message Post
-            </a>
-        </li>
-        <li class="list-group-item">
-            <a class="btn btn-success"
-               asp-controller="PhotoPosts" asp-action="Index">
-                Add Photo Post
-            </a>
-        </li>
-        <li class="list-group-item">
-            <a class="btn btn-info"
-               asp-controller="Posts" asp-action="Index">
-                List All Posts
-            </a>
-        </li>
-        <li class="list-group-item">
-            <a class="btn btn-info"
-               asp-controller="Posts" asp-action="Index">
-                List All User Posts
-            </a>
-        </li>
-        <li class="list-group-item">
-            <a class="btn btn-info"
-               asp-controller="Posts" asp-action="Index">
-                List All Posts by Date
-            </a>
-        </li>
-    </ol>
+<h2>Available Actions</h2>
+<section class="row list-group ml-5">
+    <div class="col-3">
+        <a class="list-group-item list-group-item-action list-group-item-success"
+           asp-controller="MessagePosts" asp-action="Index">
+            Add Message Post
+        </a>
+        <a class="list-group-item list-group-item-action list-group-item-success"
+           asp-controller="PhotoPosts" asp-action="Index">
+            Add Photo Post
+        </a>
+        <a class="list-group-item list-group-item-action list-group-item-info"
+           asp-controller="Posts" asp-action="Index">
+            List All Posts
+        </a>
+        <a class="list-group-item list-group-item-action list-group-item-info"
+           asp-controller="Posts" asp-action="Index">
+            List Posts for User
+        </a>
+        <a class="list-group-item list-group-item-action list-group-item-info"
+           asp-controller="Posts" asp-action="Index">
+            List All Posts by Date
+        </a>
+
+    </div>
 </section>
